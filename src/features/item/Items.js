@@ -12,6 +12,8 @@ const Items = ()=> {
     'Stickers',
     'Pins and Buttons',
     'Washi Tape',
+    'Prints',
+    'Mousepads'
   ]
 
   const Container = styled.div`
