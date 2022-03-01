@@ -19,10 +19,11 @@ function App() {
   `
   return (
     <Container>
+      <Header/>
       <Routes>
-        <Route exact path="/" element={[<Header/>, <Home/>]}/>
-        <Route exact path='/Login' element={[<Header/>, <Login/>]}/>
-        <Route path='/ItemPage' element={[<Header/>, <ItemPage/>]}/>
+        <Route path="/" element={<Home/>}/>
+        <Route path='/Login' element={<Login/>}/>
+        <Route path='/ItemPage' element={<ItemPage/>}/>
       </Routes>
     </Container>
   );

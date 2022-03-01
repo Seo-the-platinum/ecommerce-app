@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useNavigate } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 const Tile = (props)=> {
   const navigate = useNavigate()
-  
+
   const Container = styled.div`
     align-items: center;
     display:flex;
@@ -30,11 +30,11 @@ const Tile = (props)=> {
   const Price = styled.p`
     font-weight: bold;
   `
-  const goToItemPage = ()=> {
+  const goToItemPage =()=> {
     navigate('/ItemPage')
   }
   return (
-    <Container onClick={()=> goToItemPage()}>
+    <Container onClick={goToItemPage}>
       <Img src={`${props.source}`}/>
       <Label>
         {props.label}

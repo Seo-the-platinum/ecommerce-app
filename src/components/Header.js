@@ -40,7 +40,10 @@ const Header = ()=> {
   `
 
   const CartDiv = styled.div`
+    align-items: flex-end;
+    display: flex;
     width: 30%;
+    
   `
 
   const StyledLink = styled(Link)`
