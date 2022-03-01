@@ -1,12 +1,19 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import SearchIcon from '@mui/icons-material/Search';
+import { useDispatch } from 'react-redux'
+import { updateSearch } from './searchSlice'
+
+//I had to declare my styled components outside of the search component function.
+//I had to do this because there is a bug when using a styled component wrapper or container
+//with an input element inside. The input element will unfocus after each input, which in this
+//case results in having to constantly click on the input element to type a letter
 
 const Container = styled.div`
   align-items: flex-end;
   display: flex;
   height: 99%;
-  width: 80%;
+  width: 100%;
 `
 const SearchField = styled.input`
   align-items: flex-end;
@@ -25,16 +32,22 @@ const SearchIconDiv = styled.div`
   border-top-right-radius: 10px;
   border-left: 2px solid black;
   display: flex;
-  height: 79%;
+  height: 75%;
   width: 5%;
 `
 const Search = ()=> {
   const [searchTerm, setSearchTerm] = useState('')
+  const dispatch = useDispatch()
 
-  const handleChange = e => {
-    e.preventDefault()
-    setSearchTerm(e.target.value);
+  const handleChange = (e)=> {
+    setSearchTerm(e.target.value.toLowerCase());
   }
+
+  const handleSubmit = ()=> {
+    setSearchTerm('')
+    dispatch(updateSearch(searchTerm))
+  }
+
   return (
     <Container>
       <SearchField
@@ -43,7 +56,9 @@ const Search = ()=> {
         onChange={handleChange}
         value={searchTerm}/>
       <SearchIconDiv>
-        <SearchIcon style={{width: '100%', height: '100%', color: 'white'}}/>
+        <SearchIcon
+          onClick={()=>handleSubmit()}
+          style={{width: '100%', height: '100%', color: 'white'}}/>
       </SearchIconDiv>
     </Container>
   )

@@ -2,9 +2,11 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateItem } from './itemSlice'
+import { updateSearch } from '../search/searchSlice'
 
 const Items = ()=> {
-  const item = useSelector(state=>state.item.value)
+  const item = useSelector(state=> state.item.value)
+  const search = useSelector(state=> state.search.value)
   const dispatch = useDispatch()
 
   const itemTypes = [
@@ -22,7 +24,8 @@ const Items = ()=> {
     display: flex;
     flex-direction: column;
     height: 100%;
-    width: 15%;
+    padding-left: 2%;
+    width: 20%;
   `
   const Section = styled.div`
     border-right: ${(props)=> props.dataKey === item.payload ? '2px solid black' : 'none'};
@@ -30,7 +33,10 @@ const Items = ()=> {
     height: 20%;
     width: 100%;
   `
-
+  const handleDispatch = (i)=> {
+    dispatch(updateItem(i))
+    dispatch(updateSearch(undefined))
+  }
   return (
     <Container>
       {
@@ -39,7 +45,7 @@ const Items = ()=> {
             <Section
               key={i}
               dataKey={i}
-              onClick={()=> dispatch(updateItem(i))}>
+              onClick={()=> handleDispatch(i)}>
                 <p>
                   {i}
                 </p>

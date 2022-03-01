@@ -1,19 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-import Items from '../features/item/Items'
-import Display from './Display'
 
-const Home = ()=> {
+const ItemPage = ()=> {
   const Container = styled.div`
-    display: flex;
+    height: 100%;
     width: 100%;
   `
+
   return (
     <Container>
-      <Items/>
-      <Display/>
+      <p>item page!</p>
     </Container>
   )
 }
 
-export default Home
+export default ItemPage
