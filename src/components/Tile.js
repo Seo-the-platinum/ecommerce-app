@@ -31,7 +31,7 @@ const Tile = (props)=> {
     font-weight: bold;
   `
   const goToItemPage =()=> {
-    navigate('/ItemPage')
+    navigate(`/ItemPage/${props.id}`)
   }
   return (
     <Container onClick={goToItemPage}>

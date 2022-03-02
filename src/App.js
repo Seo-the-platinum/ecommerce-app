@@ -23,7 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path='/Login' element={<Login/>}/>
-        <Route path='/ItemPage' element={<ItemPage/>}/>
+        <Route path='/ItemPage/:itemId' element={<ItemPage/>}/>
       </Routes>
     </Container>
   );

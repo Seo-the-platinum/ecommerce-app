@@ -15,6 +15,7 @@ const stickyNote = 'sticky note'
 export const products = [
   {
     count: 20,
+    id: '1',
     label: 'Angry Jigglypuff Keychains',
     price: '$13.00',
     type: keychain,
@@ -23,6 +24,7 @@ export const products = [
 
   {
     count: 20,
+    id: '2',
     label: 'Angry Jigglypuff Sticker',
     price: '$2.90',
     type: stickers,
@@ -30,15 +32,19 @@ export const products = [
   },
 
   {
+    altSources:['/ecommercePics/beemo_oddish_alt_1.jpg', '/ecommercePics/bmo_oddish_alt_2.jpg', '/ecommercePics/beemo_vid.mp4'],
     count: 20,
+    id: '3',
     label: 'bmo and oddish sticker',
     price: '$3.00',
     type: stickers,
-    source: '/ecommercePics/bmo-and-oddish-sticker.jpg'
+    source: '/ecommercePics/bmo-and-oddish-sticker.jpg',
+    vSource: `/ecommercePics/beemo_vid.mp4`
   },
 
   {
     count: 20,
+    id: '4',
     label: 'Pokemon Postcard Prints',
     price: '$4.00',
     type: prints,
@@ -47,6 +53,7 @@ export const products = [
 
   {
     count: 20,
+    id: '5',
     label: 'Pokemon Vileplum Pride Stickers',
     price: '$2.50',
     type: stickers,
@@ -55,6 +62,7 @@ export const products = [
 
   {
     count: 20,
+    id: '6',
     label: 'Vileplum Posca Art Prints',
     price: '$4.00',
     type: prints,
@@ -63,6 +71,7 @@ export const products = [
 
   {
     count: 20,
+    id: '7',
     label: 'White Pencil Charizard Mouse Pad',
     price: '$16.99',
     type: mousepads,
