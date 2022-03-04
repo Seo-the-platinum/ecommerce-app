@@ -39,7 +39,6 @@ export const products = [
     price: '$3.00',
     type: stickers,
     source: '/ecommercePics/bmo-and-oddish-sticker.jpg',
-    vSource: `/ecommercePics/beemo_vid.mp4`
   },
 
   {

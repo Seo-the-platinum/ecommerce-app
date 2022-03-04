@@ -31,7 +31,7 @@ const Tile = (props)=> {
     font-weight: bold;
   `
   const goToItemPage =()=> {
-    navigate(`/ItemPage/${props.id}`)
+    navigate(`/ItemPage/${props.id}`, {state: {img: props.source}})
   }
   return (
     <Container onClick={goToItemPage}>
