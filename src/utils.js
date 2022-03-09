@@ -35,7 +35,7 @@ export const products = [
     altSources:['/ecommercePics/beemo_oddish_alt_1.jpg', '/ecommercePics/bmo_oddish_alt_2.jpg', '/ecommercePics/beemo_vid.mp4'],
     count: 20,
     id: '3',
-    label: 'bmo and oddish sticker',
+    label: 'Bmo and Oddish sticker',
     price: '$3.00',
     type: stickers,
     source: '/ecommercePics/bmo-and-oddish-sticker.jpg',

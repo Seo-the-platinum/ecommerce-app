@@ -3,6 +3,8 @@ import styled from 'styled-components'
 import { useParams, useLocation } from 'react-router-dom'
 import { products } from '../utils'
 import ReactPlayer from 'react-player'
+import Review from './Review'
+import Order from './Order'
 
 const ItemPage = ()=> {
   const {img} = useLocation().state
@@ -11,14 +13,20 @@ const ItemPage = ()=> {
   const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     height: 100%;
     padding-top: 2%;
-    width: 100%;
+    margin-left: 5%;
+    margin-right: 5%;
+    max-width: 100%;
   `
   const ItemDiv = styled.div`
+    border: 1px solid black;
     display: flex;
+    flex: 1 1 25%;
     justify-content: center;
+    height: 75%;
+    min-height: 25%;
     width: 80%;
     `
   const OrderDiv = styled.div`
@@ -51,9 +59,12 @@ const ItemPage = ()=> {
   `
 
   const ReviewsDiv = styled.div`
-    display: flex;
+    align-items: flex-start;
     border: solid 2px blue;
-    height: 400px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-start;
     width: 100%;
   `
   const OtherDiv = styled.div`
@@ -70,7 +81,7 @@ const ItemPage = ()=> {
   }
   return (
     <Container>
-      <div style={{justifyContent: 'center', display: 'flex', flexWrap: 'wrap', width: '60%'}}>
+      <div style={{ maxHeight: '700px', justifyContent: 'space-around', display: 'flex', flexWrap: 'wrap', width: '50%'}}>
       <SmallPicsDiv>
         <ThumbnailDiv>
           <Thumbnail onClick={handleChange} src={item.source}/>
@@ -93,20 +104,21 @@ const ItemPage = ()=> {
       }
       </SmallPicsDiv>
       <ItemDiv>
-        { featured.includes('.jpg') ? <img style={{height: '100%', width: '60%', objectFit: 'contain'}} src={featured}/> :
-          featured.includes('.mp4') ? <ReactPlayer url={featured} playing={true} /> :
+        { featured.includes('.jpg') ? <img style={{flex: '1 1 auto', display: 'flex', minHeight: '50%',height: '100%', width: '60%', objectFit: 'contain'}} src={featured}/> :
+          featured.includes('.mp4') ? <ReactPlayer  height='100%' playing={true} style={{objectFit: 'contain'}} url={featured} /> :
           null
         }
       </ItemDiv>
       <ReviewsDiv>
+        <Review/>
       </ReviewsDiv>
       </div>
-      <div style={{border: 'solid blue 2px', height: '800px', width: '39%', display: 'flex', flexDirection: 'column',}}>
+      <div style={{border: 'solid blue 2px', height: '800px', width: '30%', display: 'flex', flexDirection: 'column'}}>
         <OrderDiv>
-          <p>{item.label}</p>
-          <p>{item.price}</p>
+          <Order label={item.label} price={item.price} count={item.count}/>
         </OrderDiv>
         <OtherDiv>
+          <p>some information to go here</p>
         </OtherDiv>
       </div>
     </Container>
