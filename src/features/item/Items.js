@@ -4,6 +4,14 @@ import { useSelector, useDispatch } from 'react-redux'
 import { updateItem } from './itemSlice'
 import { updateSearch } from '../search/searchSlice'
 
+const Container = styled.div`
+align-items: flex-end;
+border-right: solid 2px grey;
+border-bottom: solid 2px grey;
+display: flex;
+width: 100%;
+`
+
 const Items = ()=> {
   const item = useSelector(state=> state.item.value)
   const search = useSelector(state=> state.search.value)
@@ -12,26 +20,18 @@ const Items = ()=> {
   const itemTypes = [
     'All',
     'Stickers',
-    'Pins and Buttons',
-    'Washi Tape',
+    'Pins/Buttons',
+    'Tape',
     'Prints',
-    'Mousepads'
+    'Mouse Pads'
   ]
 
-  const Container = styled.div`
-    border-right: solid 2px grey;
-    border-bottom: solid 2px grey;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding-left: 2%;
-    width: 20%;
-  `
   const Section = styled.div`
+    align-items:flex-end;
     border-right: ${(props)=> props.dataKey === item.payload ? '2px solid black' : 'none'};
     border-bottom: ${(props)=> props.dataKey === item.payload && props.dataKey === 'All' ? '2px solid black' : 'none'};
-    height: 20%;
-    width: 100%;
+    justify-content: center;
+    padding: 1%;
   `
   const handleDispatch = (i)=> {
     dispatch(updateItem(i))
@@ -46,7 +46,7 @@ const Items = ()=> {
               key={i}
               dataKey={i}
               onClick={()=> handleDispatch(i)}>
-                <p>
+                <p style={{fontSize: '.75em', margin: 0}}>
                   {i}
                 </p>
             </Section>

@@ -4,16 +4,16 @@ import Tile from './Tile'
 import { useSelector } from 'react-redux'
 import { products } from '../utils'
 
+const Container = styled.div`
+display: flex;
+flex-wrap: wrap;
+height: 100%;
+width: 100%;
+`
+
 const Display = ()=> {
   const item = useSelector(state=> state.item.value)
   const search = useSelector(state=> state.search.value)
-
-  const Container = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    height: 100%;
-    width: 100%;
-  `
 
   const filteredSearch = products.filter(p=> {
     if (search !== undefined) {

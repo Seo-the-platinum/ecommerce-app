@@ -12,18 +12,17 @@ import { updateSearch } from './searchSlice'
 const Container = styled.div`
   align-items: flex-end;
   display: flex;
-  height: 99%;
-  width: 100%;
+  flex: 1;
 `
 const SearchField = styled.input`
-  align-items: flex-end;
   background-color: white;
   border: none;
   border-bottom-left-radius: 10px;
   border-top-left-radius: 10px;
-  display: flex;
-  height: 75%;
-  width: 75%;
+  flex: 3;
+  height: 24px;
+  padding: 0;
+  text-indent: 5px;
 `
 const SearchIconDiv = styled.div`
   background-color: rgb(43, 149, 255);
@@ -32,8 +31,7 @@ const SearchIconDiv = styled.div`
   border-top-right-radius: 10px;
   border-left: 2px solid black;
   display: flex;
-  height: 75%;
-  width: 5%;
+  flex: 1;
 `
 const Search = ()=> {
   const [searchTerm, setSearchTerm] = useState('')
@@ -58,7 +56,7 @@ const Search = ()=> {
       <SearchIconDiv>
         <SearchIcon
           onClick={()=>handleSubmit()}
-          style={{width: '100%', height: '100%', color: 'white'}}/>
+          style={{ color: 'white'}}/>
       </SearchIconDiv>
     </Container>
   )

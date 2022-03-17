@@ -6,28 +6,18 @@ import ReactPlayer from 'react-player'
 import Review from './Review'
 import Order from './Order'
 
-const ItemPage = ()=> {
-  const {img} = useLocation().state
-  const [featured, setFeatured] = useState(img)
-
-  const Container = styled.div`
+const Container = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    height: 100%;
-    padding-top: 2%;
-    margin-left: 5%;
-    margin-right: 5%;
-    max-width: 100%;
   `
   const ItemDiv = styled.div`
     border: 1px solid black;
     display: flex;
-    flex: 1 1 25%;
+    flex: 2;
     justify-content: center;
-    height: 75%;
-    min-height: 25%;
-    width: 80%;
+    overflow: hidden;
+
     `
   const OrderDiv = styled.div`
     border: solid 1px green;
@@ -37,25 +27,15 @@ const ItemPage = ()=> {
     align-items: center;
     border: 2px blue solid;
     display: flex;
+    flex: 1;
     flex-direction: column;
-    height: 50%;
-    margin-left: 3%;
-    width: 10%;
+    overflow: hidden;
   `
-  const Thumbnail = styled.img`
-    border: ${(props) => props.src === featured ? 'solid black 2px' :'none'};
-    border-radius: 8px;
+const ThumbnailDiv = styled.div`
     display: flex;
-    height: 100%;
-    object-fit: cover;
-    width: 100%;
-  `
-  const ThumbnailDiv = styled.div`
-    display: flex;
+    flex: 1;
     justify-content: center;
-    margin: 7%;
-    height: 60px;
-    width: 80%;
+    object-fit: contain;
   `
 
   const ReviewsDiv = styled.div`
@@ -72,6 +52,23 @@ const ItemPage = ()=> {
     display: flex;
     width: 100%;
   `
+
+  const ImagesDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+  `
+
+const ItemPage = ()=> {
+  const {img} = useLocation().state
+  const [featured, setFeatured] = useState(img)
+
+  
+  const Thumbnail = styled.img`
+    border: ${(props) => props.src === featured ? 'solid black 2px' :'none'};
+    border-radius: 8px;
+  `
+
+  
   const { itemId } = useParams()
 
   const item = products.find(p=> p.id === itemId)
@@ -81,38 +78,38 @@ const ItemPage = ()=> {
   }
   return (
     <Container>
-      <div style={{ maxHeight: '700px', justifyContent: 'space-around', display: 'flex', flexWrap: 'wrap', width: '50%'}}>
-      <SmallPicsDiv>
-        <ThumbnailDiv>
-          <Thumbnail onClick={handleChange} src={item.source}/>
-        </ThumbnailDiv>
-        { item.altSources.map((s, index)=>
-            s.includes('.jpg') ?
-              <ThumbnailDiv>
-                <Thumbnail onClick={handleChange} src={s}/>
-              </ThumbnailDiv>
-            : s.includes('.mp4') ?
-              <ThumbnailDiv>
-                <ReactPlayer
-                  style={{
-                    border: featured.includes('.mp4') ? '2px black solid':'none',
-                    borderRadius: '8px',
-                  }}
-                  onClick={handleChange} height='100%' width='100%' url={s}/>
-              </ThumbnailDiv>
-            : null)
-      }
-      </SmallPicsDiv>
-      <ItemDiv>
-        { featured.includes('.jpg') ? <img style={{flex: '1 1 auto', display: 'flex', minHeight: '50%',height: '100%', width: '60%', objectFit: 'contain'}} src={featured}/> :
-          featured.includes('.mp4') ? <ReactPlayer  height='100%' playing={true} style={{objectFit: 'contain'}} url={featured} /> :
-          null
+      <ImagesDiv>
+        <SmallPicsDiv>
+          <ThumbnailDiv>
+            <Thumbnail onClick={handleChange} src={item.source}/>
+          </ThumbnailDiv>
+          { item.altSources.map((s, index)=>
+              s.includes('.jpg') ?
+                <ThumbnailDiv>
+                  <Thumbnail onClick={handleChange} src={s}/>
+                </ThumbnailDiv>
+              : s.includes('.mp4') ?
+                <ThumbnailDiv>
+                  <ReactPlayer
+                    style={{
+                      border: featured.includes('.mp4') ? '2px black solid':'none',
+                      borderRadius: '8px',
+                    }}
+                    onClick={handleChange} height='100%' width='100%' url={s}/>
+                </ThumbnailDiv>
+              : null)
         }
-      </ItemDiv>
+        </SmallPicsDiv>
+        <ItemDiv>
+          { featured.includes('.jpg') ? <img style={{ display: 'block' }} src={featured}/> :
+            featured.includes('.mp4') ? <ReactPlayer  height='100%' playing={true} style={{objectFit: 'contain'}} url={featured} /> :
+            null
+          }
+        </ItemDiv>
+      </ImagesDiv>
       <ReviewsDiv>
         <Review/>
       </ReviewsDiv>
-      </div>
       <div style={{border: 'solid blue 2px', height: '800px', width: '30%', display: 'flex', flexDirection: 'column'}}>
         <OrderDiv>
           <Order label={item.label} price={item.price} count={item.count}/>

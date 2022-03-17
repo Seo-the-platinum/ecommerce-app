@@ -2,16 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import { useParams, useNavigate } from 'react-router-dom'
 
-const Tile = (props)=> {
-  const navigate = useNavigate()
-
-  const Container = styled.div`
+const Container = styled.div`
     align-items: center;
     display:flex;
     flex-direction: column;
     height: 50%;
     margin: 1%;
-    width: 20%;
+    
     &:hover {
        box-shadow: 0 0 10px #ccc;
        border-radius: 10px;
@@ -30,6 +27,10 @@ const Tile = (props)=> {
   const Price = styled.p`
     font-weight: bold;
   `
+
+const Tile = (props)=> {
+  const navigate = useNavigate()
+
   const goToItemPage =()=> {
     navigate(`/ItemPage/${props.id}`, {state: {img: props.source}})
   }

@@ -6,6 +6,7 @@ import Display from './Display'
 const Home = ()=> {
   const Container = styled.div`
     display: flex;
+    flex-direction: column;
     width: 100%;
   `
   return (

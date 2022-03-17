@@ -11,12 +11,14 @@ import {
   Routes,
   Route } from 'react-router-dom'
 
-function App() {
   const Container = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
   `
+
+function App() {
+  
   return (
     <Container>
       <Header/>
