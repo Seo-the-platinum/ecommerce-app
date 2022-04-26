@@ -3,6 +3,7 @@ import counterReducer from '../features/counter/counterSlice'
 import userReducer from '../features/user/userSlice'
 import itemReducer from '../features/item/itemSlice'
 import searchReducer from '../features/search/searchSlice'
+import orderReducer from '../features/order/OrderSlice'
 
 export default configureStore({
   reducer: {
@@ -10,5 +11,6 @@ export default configureStore({
     user: userReducer,
     item: itemReducer,
     search: searchReducer,
+    order: orderReducer,
   },
 })

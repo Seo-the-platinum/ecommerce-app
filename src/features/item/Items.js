@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateItem } from './itemSlice'
@@ -14,7 +14,6 @@ width: 100%;
 
 const Items = ()=> {
   const item = useSelector(state=> state.item.value)
-  const search = useSelector(state=> state.search.value)
   const dispatch = useDispatch()
 
   const itemTypes = [
@@ -23,7 +22,7 @@ const Items = ()=> {
     'Pins/Buttons',
     'Tape',
     'Prints',
-    'Mouse Pads'
+    'Mousepads'
   ]
 
   const Section = styled.div`

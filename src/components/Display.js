@@ -14,7 +14,6 @@ width: 100%;
 const Display = ()=> {
   const item = useSelector(state=> state.item.value)
   const search = useSelector(state=> state.search.value)
-
   const filteredSearch = products.filter(p=> {
     if (search !== undefined) {
       if (p.label.toLowerCase().includes(search.payload)) {
@@ -22,32 +21,17 @@ const Display = ()=> {
       }
     }
   })
-
   return (
     <Container>
       {
         filteredSearch.length > 0 ?
-        filteredSearch.map(p=> <Tile
-          count={p.count}
-          id={p.id}
-          label={p.label}
-          price={p.price}
-          source={p.source}/>)
+        filteredSearch.map(p=> {
+         return <Tile product={p}/>})
         :
-        products.map(p=> p.type === item.payload ?
-        <Tile
-          count={p.count}
-          id={p.id}
-          label={p.label}
-          price={p.price}
-          source={p.source}/>
+        products.map(p=> p.type === item.payload ? 
+          <Tile product={p}/>
         : item.payload === 'All' ?
-        <Tile
-          count={p.count}
-          id={p.id} 
-          label={p.label}
-          price={p.price}
-          source={p.source}/>
+        <Tile product={p}/>
         : null
       )}
     </Container>

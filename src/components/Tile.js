@@ -30,18 +30,18 @@ const Container = styled.div`
 
 const Tile = (props)=> {
   const navigate = useNavigate()
-
+  const {product} = props
   const goToItemPage =()=> {
-    navigate(`/ItemPage/${props.id}`, {state: {img: props.source}})
+    navigate(`/ItemPage/${product.id}`, {state: {img: product.source}})
   }
   return (
     <Container onClick={goToItemPage}>
-      <Img src={`${props.source}`}/>
+      <Img src={`${product.source}`}/>
       <Label>
-        {props.label}
+        {product.label}
       </Label>
       <Price>
-        {props.price}
+        {product.price}
       </Price>
     </Container>
   )

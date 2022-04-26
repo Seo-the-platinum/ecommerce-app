@@ -75,9 +75,6 @@ const Header = ()=> {
   const navigate = useNavigate()
   const [sidebar, setSidebar] = useState(false)
 
-  const goToCart = ()=> {
-    navigate('/Cart')
-  }
 
   const handleSidebar = ()=> setSidebar(!sidebar)
   console.log(sidebar)
@@ -92,17 +89,20 @@ const Header = ()=> {
             <Img src='/beebeebarrylogo.jpg'/>
         </HomeDiv>
         <SigninDiv>
-          <StyledLink to='/'> Home </StyledLink>
-          <StyledLink to='/Login'>
+          <StyledLink onClick={handleSidebar} to='/'> 
+            Home </StyledLink>
+          <StyledLink onClick={handleSidebar} to='/Login'>
             Login
           </StyledLink>
-          <StyledLink to='/Signup'>
+          <StyledLink onClick={handleSidebar} to='/Signup'>
             Sign Up
           </StyledLink>
-          <CartDiv onClick={()=> goToCart()}>
-            <ShoppingCartIcon
-              sx={{fontSize: 40}}
-              style={{color: 'white',}}/>
+          <CartDiv>
+            <StyledLink onClick={handleSidebar} to='/Cart'>
+              <ShoppingCartIcon
+                sx={{fontSize: 40}}
+                style={{color: 'white',}}/>
+            </StyledLink>
           </CartDiv>
         </SigninDiv>
       </SidebarContainer> : null

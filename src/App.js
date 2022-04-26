@@ -1,11 +1,12 @@
 import logo from './logo.svg';
 import './App.css';
-import Login from './components/Login'
-import ItemPage from './components/ItemPage'
+import Login from './views/login/Login'
+import ItemPage from './views/itemPage/ItemPage'
 import Profile from './components/Profile'
 import User from './features/user/User'
 import Header from './components/Header'
-import Home from './components/Home'
+import Home from './views/home/Home'
+import Cart from './views/cart/Cart'
 import styled from 'styled-components'
 import {
   Routes,
@@ -26,6 +27,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path='/Login' element={<Login/>}/>
         <Route path='/ItemPage/:itemId' element={<ItemPage/>}/>
+        <Route path='/Cart/' element={<Cart/>}/>
       </Routes>
     </Container>
   );
