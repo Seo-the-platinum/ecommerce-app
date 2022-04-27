@@ -7,16 +7,15 @@ export const orderSlice = createSlice({
     },
     reducers: {
         addItem: (state, action) => {
-            console.log('trying to add...', state.value, action)
             state.value.push(action.payload)
         },
 
         removeItem: (state, action) => {
-            state.filter(item => item.id !== action.payload.id )
+            state.value.filter(item => item.id !== action.payload.id)
         },
 
         updateItem: (state, action) => {
-            const toUpdate = state.find(id=> id === action.id)
+            const toUpdate = state.value.find(id=> id === action.id)
             return toUpdate.amount + action.amount
         }
     }

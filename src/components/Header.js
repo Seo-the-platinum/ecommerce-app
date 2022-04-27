@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Search from '../features/search/Search'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu';
 
 const Container = styled.div`
@@ -72,12 +72,8 @@ const Container = styled.div`
   `
 
 const Header = ()=> {
-  const navigate = useNavigate()
   const [sidebar, setSidebar] = useState(false)
-
-
   const handleSidebar = ()=> setSidebar(!sidebar)
-  console.log(sidebar)
   return (
     <Container>
       <div onClick={handleSidebar}>

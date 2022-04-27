@@ -11,7 +11,6 @@ const Order = props => {
   const [amount, setAmount] = useState(1)
   const dispatch = useDispatch()
   const {item}=props
-  const order=useSelector(state=> state.order.value)
   const handleChange = (e) => {
     setAmount(e.target.value)
   }

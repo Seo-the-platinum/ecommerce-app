@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 import Items from '../../features/item/Items'
 import Display from '../../components/Display'
 
