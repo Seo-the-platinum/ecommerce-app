@@ -1,0 +1,19 @@
+.no-sideBar#sideBarContainer{
+    display: none;
+    transition: all 1s;
+}
+
+#sideBarContainer {
+    background-color: black;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-evenly;
+    min-height: 600%;
+    padding-left: 5%;
+    position: relative;
+    top: 608%;
+    right: 8%;
+    transition: all 1s;
+    width: 30%;
+}

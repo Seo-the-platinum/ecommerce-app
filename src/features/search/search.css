@@ -1,0 +1,26 @@
+.searchContainer {
+    align-items: flex-end;
+    display: flex;
+    flex: 1;
+}
+
+.searchField {
+    background-color: white;
+    border: none;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    flex: 3;
+    height: 24px;
+    padding: 0;
+    text-indent: 5px;
+}
+
+.searchIcon {
+    background-color: rgb(43, 149, 255);
+    border: none;
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-left: 2px solid black;
+    display: flex;
+    flex: 1;
+}

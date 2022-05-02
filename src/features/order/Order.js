@@ -26,7 +26,7 @@ const Order = props => {
     <div style={{display: 'flex', flexDirection: 'column'}}>
       <div style={{display: 'flex', flex: '1', justifyContent: 'space-between', width: '100%'}}>
         <p>{item.label}</p>
-        <p>{item.price}</p>
+        <p>{`$${item.price.toFixed(2)}`}</p>
       </div>
         <FormControl fullWidth>
           <InputLabel id='quantity-label'> Quantity </InputLabel>

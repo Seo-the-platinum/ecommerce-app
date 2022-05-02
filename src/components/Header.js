@@ -4,6 +4,7 @@ import Search from '../features/search/Search'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { Link } from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu';
+import './components.css'
 
 const Container = styled.div`
     align-items: flex-end;
@@ -65,6 +66,7 @@ const Container = styled.div`
     flex-direction: column;
     justify-content:space-evenly;
     min-height: 600%;
+    padding-left: 5%;
     position: relative;
     top: 608%;
     right: 8%;
@@ -79,8 +81,7 @@ const Header = ()=> {
       <div onClick={handleSidebar}>
         <MenuIcon style={{color: 'white', width: '100%'}}/>
       </div>
-      {sidebar === true ? 
-        <SidebarContainer>
+        <div className={!sidebar ? 'no-sideBar': ''} id='sideBarContainer'>
           <HomeDiv>
             <Img src='/beebeebarrylogo.jpg'/>
         </HomeDiv>
@@ -101,8 +102,7 @@ const Header = ()=> {
             </StyledLink>
           </CartDiv>
         </SigninDiv>
-      </SidebarContainer> : null
-      }
+      </div>
       <SearchDiv>
         <Search/>
       </SearchDiv>

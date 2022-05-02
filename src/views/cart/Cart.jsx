@@ -54,7 +54,7 @@ const Cart = () => {
             <div className='item'>
                 <img src={item.source}/>
                 <p>{item.label}</p>
-                <p>{item.price}</p>
+                <p>{`$${item.price.toFixed(2)}`}</p>
                 <FormControl fullWidth>
                     <InputLabel id='quantity-label'> 
                         Quantity 

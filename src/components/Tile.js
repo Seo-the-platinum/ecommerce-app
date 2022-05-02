@@ -41,7 +41,7 @@ const Tile = (props)=> {
         {product.label}
       </Label>
       <Price>
-        {product.price}
+        {`$${product.price.toFixed(2)}`}
       </Price>
     </Container>
   )

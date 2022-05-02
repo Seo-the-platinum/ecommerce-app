@@ -8,21 +8,23 @@ const Checkout = () => {
         const item = products.find(p=> p.id === o.id)
         return item
     })
-    
+   
+    const total = items.reduce((prev, curr)=> prev + curr.price, 0)
   return (
     <div>
         {
-            order.map(i=> {
+            items.map(i=> {
                 return (
                     <div>
+                        <img src={i.source}/>
                         <p>{i.label}</p>
-                        <p>{i.price}</p>
+                        <p>{`$${i.price.toFixed(2)}`}</p>
                         <p>{i.amount}</p>
                     </div>
                 )
             })
         }
-        <h1>total:</h1>
+        <h1>{`Total: $${total.toFixed(2)}`}</h1>
     </div>
   )
 }

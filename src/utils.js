@@ -17,7 +17,7 @@ export const products = [
     count: 20,
     id: '1',
     label: 'Angry Jigglypuff Keychains',
-    price: '$13.00',
+    price: 13.00,
     type: keychain,
     source: '/ecommercePics/Angry_jigglypuff_keychains.jpg'
   },
@@ -26,7 +26,7 @@ export const products = [
     count: 20,
     id: '2',
     label: 'Angry Jigglypuff Sticker',
-    price: '$2.90',
+    price: 2.90,
     type: stickers,
     source: '/ecommercePics/Angry_jigglypuff_stickers.jpg'
   },
@@ -36,7 +36,7 @@ export const products = [
     count: 20,
     id: '3',
     label: 'Bmo and Oddish sticker',
-    price: '$3.00',
+    price: 3.00,
     type: stickers,
     source: '/ecommercePics/bmo-and-oddish-sticker.jpg',
   },
@@ -45,7 +45,7 @@ export const products = [
     count: 20,
     id: '4',
     label: 'Pokemon Postcard Prints',
-    price: '$4.00',
+    price: 4.00,
     type: prints,
     source: '/ecommercePics/pokemon-postcard-prints.jpg'
   },
@@ -54,7 +54,7 @@ export const products = [
     count: 20,
     id: '5',
     label: 'Pokemon Vileplum Pride Stickers',
-    price: '$2.50',
+    price: 2.50,
     type: stickers,
     source: '/ecommercePics/pokemon-vileplume-pride-stickers.jpg'
   },
@@ -63,7 +63,7 @@ export const products = [
     count: 20,
     id: '6',
     label: 'Vileplum Posca Art Prints',
-    price: '$4.00',
+    price: 4.00,
     type: prints,
     source: '/ecommercePics/vileplume-posca-art-prints.jpg'
   },
@@ -72,7 +72,7 @@ export const products = [
     count: 20,
     id: '7',
     label: 'White Pencil Charizard Mouse Pad',
-    price: '$16.99',
+    price: 16.99,
     type: mousepads,
     source: '/ecommercePics/white-pencil-charizard-mouse-pad.jpg'
   }
