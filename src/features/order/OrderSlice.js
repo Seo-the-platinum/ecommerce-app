@@ -9,14 +9,14 @@ export const orderSlice = createSlice({
         addItem: (state, action) => {
             state.value.push(action.payload)
         },
-
+        //understand why you dont need payload here but do on line 18
         removeItem: (state, action) => {
             state.value.filter(item => item.id !== action.id)
         },
 
         updateItem: (state, action) => {
-            const toUpdate = state.value.find(id=> id === action.id)
-            return toUpdate.amount + action.amount
+            const toUpdate = state.value.find(item=> item.id === action.payload.id)
+            toUpdate.amount = action.payload.amount
         }
     }
 

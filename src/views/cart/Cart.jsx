@@ -5,7 +5,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { removeItem } from '../../features/order/OrderSlice'
+import { removeItem, updateItem } from '../../features/order/OrderSlice'
 import { useNavigate } from 'react-router-dom'
 import './cart.css'
 
@@ -26,13 +26,11 @@ const Cart = () => {
     },[order])
 
     const handleChange = (e) => {
-       const updatedItems = items.map(i=> {
-           if (i.label === e.target.name) {
-               i.amount = e.target.value
-           }
-           return i
-       })
-        updateItems(updatedItems)
+        console.log('e here:', e)
+       const updatedItems = items.find(i=> i.label === e.target.name)
+       updatedItems.amount = e.target.value
+        
+        dispatch(updateItem(updatedItems))
       }
     const handleDelete = (e)=> {
         const updatedItems = items.filter(i=> {
@@ -51,7 +49,6 @@ const Cart = () => {
         Cart
         {
         items.map(item => {
-            console.log(item)
             return (
             <div className='item'>
                 <img src={item.source}/>
@@ -62,7 +59,7 @@ const Cart = () => {
                         Quantity 
                     </InputLabel>
                     <Select
-                        id='quantity'
+                        id={item.id}
                         label='quantity'
                         labelId='quantity-label'
                         onChange={handleChange}
