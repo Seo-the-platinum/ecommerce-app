@@ -1,14 +1,14 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { products } from '../../utils'
+import { products } from '../../utils/utils'
 
 const Checkout = () => {
     const order = useSelector(state=> state.order.value)
+    const products = useSelector(state=> state.items.value.payload)
     const items = order.map(o=> {
         const item = products.find(p=> p.id === o.id)
         return item
     })
-   
     const total = items.reduce((prev, curr)=> prev + curr.price, 0)
   return (
     <div>

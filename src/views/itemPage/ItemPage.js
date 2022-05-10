@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useParams, useLocation } from 'react-router-dom'
-import { products } from '../../utils'
+import { useSelector } from 'react-redux'
 import ReactPlayer from 'react-player'
 import Review from '../../components/Review'
 import Order from '../../features/order/Order'
@@ -10,7 +10,8 @@ const ItemPage = ()=> {
   const {img} = useLocation().state
   const [featured, setFeatured] = useState(img)
   const { itemId } = useParams()
-  const item = products.find(p=> p.id === itemId)
+  const item = useSelector(state=> state.items.value.payload.find(i=> i.id === itemId))
+  console.log('product here:',item)
   const itemImages = item.altSources ? [item.source, ...item.altSources] : [item.source]
   const handleChange = (e)=> {
     setFeatured(e.target.getAttribute('src'))

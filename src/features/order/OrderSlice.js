@@ -11,7 +11,7 @@ export const orderSlice = createSlice({
         },
 
         removeItem: (state, action) => {
-            state.value.filter(item => item.id !== action.payload.id)
+            state.value.filter(item => item.id !== action.id)
         },
 
         updateItem: (state, action) => {

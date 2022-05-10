@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { addItem } from './OrderSlice';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -21,7 +21,7 @@ const Order = props => {
       amount: amount,
     }))
   }
-  const ghostArray = Array.from({length: item.count}, (v,i)=> i )
+  const ghostArray = Array.from({length: item.quantity}, (v,i)=> i )
   return (
     <div style={{display: 'flex', flexDirection: 'column'}}>
       <div style={{display: 'flex', flex: '1', justifyContent: 'space-between', width: '100%'}}>

@@ -59,19 +59,6 @@ const Container = styled.div`
     width: 50%;
   `
 
-  const SidebarContainer = styled.div`
-    background-color: black;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content:space-evenly;
-    min-height: 600%;
-    padding-left: 5%;
-    position: relative;
-    top: 608%;
-    right: 8%;
-    width: 30%;
-  `
 
 const Header = ()=> {
   const [sidebar, setSidebar] = useState(false)

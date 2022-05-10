@@ -33,7 +33,7 @@ const Items = ()=> {
     padding: 1%;
   `
   const handleDispatch = (i)=> {
-    dispatch(updateItem(i))
+    dispatch(updateItem(i.toLowerCase()))
     dispatch(updateSearch(undefined))
   }
   return (

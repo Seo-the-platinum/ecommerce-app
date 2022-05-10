@@ -1,6 +1,7 @@
 .no-sideBar#sideBarContainer{
-    display: none;
-    transition: all 1s;
+    display: flex;
+    right: 100%;
+    transition: right .500s ease-in-out;
 }
 
 #sideBarContainer {
@@ -9,11 +10,11 @@
     display: flex;
     flex-direction: column;
     justify-content:space-evenly;
-    min-height: 600%;
-    padding-left: 5%;
     position: relative;
+    min-height: 600%;
     top: 608%;
-    right: 8%;
-    transition: all 1s;
+    right: 10%;
+    padding-left: 5%;
+    transition: right .500s ease-in-out;
     width: 30%;
 }

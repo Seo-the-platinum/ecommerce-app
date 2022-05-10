@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch , useSelector } from 'react-redux'
-import { products } from '../../utils'
 import Button from '@mui/material/Button';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -11,16 +10,17 @@ import { useNavigate } from 'react-router-dom'
 import './cart.css'
 
 const Cart = () => {
-    const [items, updateItems]=useState([])
+    const [items, updateItems ]=useState([])
     const order = useSelector(state=> state.order.value)
+    const products = useSelector(state=> state.items.value.payload)
+    console.log('products here:', products, 'order here:', order)
     const navigate = useNavigate()
     const dispatch = useDispatch()
     useEffect(()=> {
         const itemsInCart = order.map(obj=> {
             const {amount}= obj
             const item = products.find(p=> p.id === obj.id)
-            item['amount']=amount
-            return item
+            return {...item, amount}
         })
         updateItems(itemsInCart)
     },[order])
@@ -45,11 +45,13 @@ const Cart = () => {
     const toCheckout = ()=> {
         navigate(`/Checkout`)
     }
+    console.log(items)
   return (
     <div className='container'>
         Cart
         {
         items.map(item => {
+            console.log(item)
             return (
             <div className='item'>
                 <img src={item.source}/>
@@ -68,7 +70,7 @@ const Cart = () => {
                         value={item.amount ? item.amount: 1}
                         defaultValue={item.amount ? item.amount: 1}>
                         {
-                            Array.from({length: item.count}, (v,i)=> i).map((i)=> {
+                            Array.from({length: item.quantity}, (v,i)=> i).map((i)=> {
                             return <MenuItem value={i ? i + 1: 1}>{i + 1} </MenuItem>
                             })
                         }
