@@ -26,10 +26,8 @@ const Cart = () => {
     },[order])
 
     const handleChange = (e) => {
-        console.log('e here:', e)
-       const updatedItems = items.find(i=> i.label === e.target.name)
-       updatedItems.amount = e.target.value
-        
+        const updatedItems = items.find(i=> i.label === e.target.name)
+        updatedItems.amount = e.target.value
         dispatch(updateItem(updatedItems))
       }
     const handleDelete = (e)=> {
