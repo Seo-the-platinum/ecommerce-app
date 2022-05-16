@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { addItem } from './OrderSlice';
+import { addItem, updateItem } from './OrderSlice';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -10,17 +10,26 @@ import Button from '@mui/material/Button';
 const Order = props => {
   const [amount, setAmount] = useState(1)
   const dispatch = useDispatch()
-  const {item}=props
+  const {item, order}=props
+  const inCart = order.find(o=> item.id === o.id) ? true : false
   const handleChange = (e) => {
     setAmount(e.target.value)
   }
   const addToCart= (e)=> {
     e.preventDefault()
-    dispatch(addItem({
-      id: item.id,
-      amount: amount,
-    }))
+    if (inCart) {
+      const itemInCart= order.find(o=> o.id === item.id)
+      const updatedItem = {...itemInCart}
+      updatedItem['amount'] += amount
+      dispatch(updateItem(updatedItem))
+    } else {
+      dispatch(addItem({
+        id: item.id,
+        amount: amount,
+      }))
+    }
   }
+
   const ghostArray = Array.from({length: item.quantity}, (v,i)=> i )
   return (
     <div style={{display: 'flex', flexDirection: 'column'}}>
@@ -44,6 +53,7 @@ const Order = props => {
           </Select>
           <Button type='submit' onClick={addToCart}>
             Add to Cart
+            {inCart ? <p style={{color: 'green', marginLeft: '5%'}}>In cart</p> : null}
           </Button>
         </FormControl>
     </div>

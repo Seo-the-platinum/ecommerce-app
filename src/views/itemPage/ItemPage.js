@@ -11,7 +11,8 @@ const ItemPage = ()=> {
   const [featured, setFeatured] = useState(img)
   const { itemId } = useParams()
   const item = useSelector(state=> state.items.value.payload.find(i=> i.id === itemId))
-  console.log('product here:',item)
+  const order = useSelector(state=> state.order.value)
+  console.log(order)
   const itemImages = item.altSources ? [item.source, ...item.altSources] : [item.source]
   const handleChange = (e)=> {
     setFeatured(e.target.getAttribute('src'))
@@ -57,7 +58,7 @@ const ItemPage = ()=> {
         </div>
       </div>
       <div className='bottom-section'>
-        <Order item={item}/>
+        <Order item={item} order={order}/>
         <div className="otherDiv">
           <p>some information to go here</p>
         </div>

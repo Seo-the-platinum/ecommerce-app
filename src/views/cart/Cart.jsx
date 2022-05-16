@@ -13,16 +13,17 @@ const Cart = () => {
     const [items, updateItems ]=useState([])
     const order = useSelector(state=> state.order.value)
     const products = useSelector(state=> state.items.value.payload)
-    console.log('products here:', products, 'order here:', order)
     const navigate = useNavigate()
     const dispatch = useDispatch()
     useEffect(()=> {
-        const itemsInCart = order.map(obj=> {
-            const {amount}= obj
-            const item = products.find(p=> p.id === obj.id)
-            return {...item, amount}
-        })
-        updateItems(itemsInCart)
+        if (order) {
+            const itemsInCart = order.map(obj=> {
+                const {amount}= obj
+                const item = products.find(p=> p.id === obj.id)
+                return {...item, amount}
+            })
+            updateItems(itemsInCart)
+        }
     },[order])
 
     const handleChange = (e) => {
@@ -31,8 +32,10 @@ const Cart = () => {
         dispatch(updateItem(updatedItems))
       }
     const handleDelete = (e)=> {
+        console.log('target here:',e.target.value)
+        const itemToDelete = e.target.value
         const updatedItems = items.filter(i=> {
-            return i.id !== e.target.value
+            return i.id !== itemToDelete
         })
         updateItems(updatedItems)
         dispatch(removeItem(e.target.value))
@@ -41,7 +44,7 @@ const Cart = () => {
     const toCheckout = ()=> {
         navigate(`/Checkout`)
     }
-    console.log(items)
+    
   return (
     <div className='container'>
         Cart
