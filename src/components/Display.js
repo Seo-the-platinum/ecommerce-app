@@ -2,19 +2,12 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import Tile from './Tile'
 import { useSelector } from 'react-redux'
-
-const Container = styled.div`
-display: flex;
-flex-wrap: wrap;
-height: 100%;
-width: 100%;
-`
+import './components.css'
 
 const Display = ()=> {
-  const item = useSelector(state=> state.item.value.payload)
+  const item = useSelector(state=> state.item.value)
   const search = useSelector(state=> state.search.value)
   const items = useSelector(state=> state.items.value.payload)
- 
   const filteredSearch = items ? items.filter(p=> {
     if (search !== undefined) {
       if (p.label.toLowerCase().includes(search.payload)) {
@@ -22,13 +15,12 @@ const Display = ()=> {
       }
     }
   }) : null
-  console.log(items, search, item)
   return (
-    <Container>
+    <div className='displayContainer'>
       { items ?
         filteredSearch.length > 0 ?
         filteredSearch.map(p=> {
-         return <Tile product={p}/>})
+         return <Tile key={p.id} product={p}/>})
         :
         items.map(p=> p.type === item ? 
           <Tile product={p}/>
@@ -36,7 +28,7 @@ const Display = ()=> {
         <Tile product={p}/>
         : null
       ): null }
-    </Container>
+    </div>
   )
 }
 

@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateItem } from './itemSlice'
 import { updateSearch } from '../search/searchSlice'
+import './items.css'
 
 const Container = styled.div`
 align-items: flex-end;
@@ -37,7 +38,7 @@ const Items = ()=> {
     dispatch(updateSearch(undefined))
   }
   return (
-    <Container>
+    <div className='itemsContainer'>
       {
         itemTypes.map(i=> {
           return (
@@ -52,7 +53,7 @@ const Items = ()=> {
           )
         })
       }
-    </Container>
+    </div>
   )
 }
 

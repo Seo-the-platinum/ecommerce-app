@@ -16,7 +16,7 @@ const Checkout = () => {
         {
             items.map(i=> {
                 return (
-                    <div>
+                    <div key={i.id}>
                         <img src={i.source}/>
                         <p>{i.label}</p>
                         <p>{`$${i.price.toFixed(2)}`}</p>

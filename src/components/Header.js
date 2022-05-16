@@ -64,7 +64,7 @@ const Header = ()=> {
   const [sidebar, setSidebar] = useState(false)
   const handleSidebar = ()=> setSidebar(!sidebar)
   return (
-    <Container>
+    <div className='headerContainer'>
       <div onClick={handleSidebar}>
         <MenuIcon style={{color: 'white', width: '100%'}}/>
       </div>
@@ -93,7 +93,7 @@ const Header = ()=> {
       <SearchDiv>
         <Search/>
       </SearchDiv>
-    </Container>
+    </div>
   )
 }
 

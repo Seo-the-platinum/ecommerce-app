@@ -1,0 +1,12 @@
+.itemsContainer {
+    align-items: flex-end;
+    border-right: solid 2px grey;
+    border-bottom: solid 2px grey;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+   
+}

@@ -3,11 +3,11 @@ import { createSlice } from '@reduxjs/toolkit'
 export const itemSlice = createSlice({
   name: 'item',
   initialState: {
-    value: 'All'
+    value: 'all'
   },
   reducers: {
-    updateItem: (state, item)=> {
-      state.value = item
+    updateItem: (state, action)=> {
+      state.value = action.payload
     }
   }
 })

@@ -18,3 +18,42 @@
     transition: right .500s ease-in-out;
     width: 30%;
 }
+
+.displayContainer {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.headerContainer {
+    align-items: flex-end;
+    background-color: black;
+    border: 2px black solid;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 50px;
+    width: 100%;
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    .displayContainer {
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #sideBarContainer {
+        padding-left: 10%;
+        width: 20%;
+    }
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .displayContainer {
+        justify-content: center;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
