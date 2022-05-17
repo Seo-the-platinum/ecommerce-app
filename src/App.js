@@ -18,7 +18,7 @@ import { collection, getDocs } from 'firebase/firestore'
   const Container = styled.div`
     display: flex;
     flex-direction: column;
-    width: 100%;
+    max-width: 100%;
   `
 
 const App= ()=> {

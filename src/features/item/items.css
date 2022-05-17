@@ -1,10 +1,19 @@
 .itemsContainer {
     align-items: flex-end;
+    border-left: solid 2px grey;
     border-right: solid 2px grey;
     border-bottom: solid 2px grey;
     display: flex;
     justify-content: space-evenly;
-    width: 100%;
+    min-width: 97%;
+}
+
+.itemsOption {
+    flex: 1;
+}
+
+.itemSelected {
+    background-color: rgba(235, 64, 52, .9);
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {

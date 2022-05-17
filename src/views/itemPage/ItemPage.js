@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import ReactPlayer from 'react-player'
 import Review from '../../components/Review'
 import Order from '../../features/order/Order'
+import Other from '../../components/Other'
 import './itemPage.css'
 
 const ItemPage = ()=> {
@@ -12,13 +13,12 @@ const ItemPage = ()=> {
   const { itemId } = useParams()
   const item = useSelector(state=> state.items.value.payload.find(i=> i.id === itemId))
   const order = useSelector(state=> state.order.value)
-  console.log(order)
   const itemImages = item.altSources ? [item.source, ...item.altSources] : [item.source]
   const handleChange = (e)=> {
     setFeatured(e.target.getAttribute('src'))
   }
   return (
-    <div className='container'>
+    <div className='itemPageContainer'>
       <div className='imagesDiv'>
         <div className='itemDiv'>
             { featured.includes('.jpg') ? <img className='featured' src={featured}/> :
@@ -48,9 +48,9 @@ const ItemPage = ()=> {
                       borderRadius: '8px',
                     }}
                     onClick={handleChange} 
-                    height='75px' 
+                    height='70px'
                     url={s}
-                    width='75px' 
+                    width='70px' 
                     />
                 </div>
               : null)
@@ -60,7 +60,7 @@ const ItemPage = ()=> {
       <div className='bottom-section'>
         <Order item={item} order={order}/>
         <div className="otherDiv">
-          <p>some information to go here</p>
+          <Other item={item}/>
         </div>
       </div>
       <div className='reviewsDiv'>

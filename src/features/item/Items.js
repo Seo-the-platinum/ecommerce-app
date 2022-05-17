@@ -1,20 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
 import { updateItem } from './itemSlice'
 import { updateSearch } from '../search/searchSlice'
 import './items.css'
 
-const Container = styled.div`
-align-items: flex-end;
-border-right: solid 2px grey;
-border-bottom: solid 2px grey;
-display: flex;
-width: 100%;
-`
-
 const Items = ()=> {
   const item = useSelector(state=> state.item.value)
+  const [ selectedItem, setSelectedItem] = useState('All')
   const dispatch = useDispatch()
 
   const itemTypes = [
@@ -36,6 +29,7 @@ const Items = ()=> {
   const handleDispatch = (i)=> {
     dispatch(updateItem(i.toLowerCase()))
     dispatch(updateSearch(undefined))
+    setSelectedItem(i)
   }
   return (
     <div className='itemsContainer'>
@@ -43,6 +37,7 @@ const Items = ()=> {
         itemTypes.map(i=> {
           return (
             <Section
+              className={selectedItem === i ? 'itemsOption itemSelected' : 'itemsOption'}
               key={i}
               dataKey={i}
               onClick={()=> handleDispatch(i)}>

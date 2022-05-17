@@ -2,18 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { useNavigate } from 'react-router-dom'
 
-const Container = styled.div`
-    align-items: center;
-    display:flex;
-    flex-direction: column;
-    height: 50%;
-    margin: 1%;
-    
-    &:hover {
-       box-shadow: 0 0 10px #ccc;
-       border-radius: 10px;
-    }
-  `
   const Img = styled.img`
     display: flex;
     margin-top: 5%;
@@ -35,7 +23,7 @@ const Tile = (props)=> {
     navigate(`/ItemPage/${product.id}`, {state: {img: product.source}})
   }
   return (
-    <Container onClick={goToItemPage}>
+    <div className='tileContainer' onClick={goToItemPage}>
       <Img src={`${product.source}`}/>
       <Label>
         {product.label}
@@ -43,7 +31,7 @@ const Tile = (props)=> {
       <Price>
         {`$${product.price.toFixed(2)}`}
       </Price>
-    </Container>
+    </div>
   )
 }
 

@@ -6,33 +6,6 @@ import { Link } from 'react-router-dom'
 import MenuIcon from '@mui/icons-material/Menu';
 import './components.css'
 
-const Container = styled.div`
-    align-items: flex-end;
-    background-color: black;
-    border: 2px black solid;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    height: 50px;
-    width: 100%;
-  `
-  const HomeDiv = styled.div`
-    align-items: flex-start;
-    display: flex;
-    flex: 1;
-    flex-direction: column;
-    height: 100%;
-    justify-content: flex-start;
-    width: 100%;
-  `
-
-  const SearchDiv = styled.div`
-    align-items: flex-end;
-    display: flex;
-    height: 100%;
-    width: 70%;
-  `
-
   const SigninDiv = styled.div`
     display: flex;
     flex: 3;
@@ -62,17 +35,18 @@ const Container = styled.div`
 
 const Header = ()=> {
   const [sidebar, setSidebar] = useState(false)
-  const handleSidebar = ()=> setSidebar(!sidebar)
+  const handleSidebar = ()=> {
+    setSidebar(!sidebar)}
   return (
     <div className='headerContainer'>
       <div onClick={handleSidebar}>
         <MenuIcon style={{color: 'white', width: '100%'}}/>
       </div>
         <div className={!sidebar ? 'no-sideBar': ''} id='sideBarContainer'>
-          <HomeDiv>
-            <Img src='/beebeebarrylogo.jpg'/>
-        </HomeDiv>
-        <SigninDiv>
+          <div className='headerHomeDiv'>
+              <Img src='/beebeebarrylogo.jpg'/>
+          </div>
+          <SigninDiv>
           <StyledLink onClick={handleSidebar} to='/'> 
             Home </StyledLink>
           <StyledLink onClick={handleSidebar} to='/Login'>
@@ -90,9 +64,9 @@ const Header = ()=> {
           </CartDiv>
         </SigninDiv>
       </div>
-      <SearchDiv>
+      <div className='headerSearchDiv'>
         <Search/>
-      </SearchDiv>
+      </div>
     </div>
   )
 }
