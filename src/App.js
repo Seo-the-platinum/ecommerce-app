@@ -3,6 +3,7 @@ import React, { useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { updateItems } from './features/firebaseItems/firebaseItemsSlice'
 import Login from './views/login/Login'
+import CreateNew from './views/createNewAccount/CreateNew'
 import ItemPage from './views/itemPage/ItemPage'
 import Header from './components/Header'
 import Home from './views/home/Home'
@@ -39,6 +40,7 @@ const App= ()=> {
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path='/Login' element={<Login/>}/>
+        <Route path='/CreateNew' element={<CreateNew/>}/>
         <Route path='/ItemPage/:itemId' element={<ItemPage/>}/>
         <Route path='/Cart/' element={<Cart/>}/>
         <Route path='/Checkout' element={<Checkout/>}/>

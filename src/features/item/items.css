@@ -12,10 +12,34 @@
     flex: 1;
 }
 
+.itemP {
+    font-size: .75em;
+}
+
 .itemSelected {
+    flex: 1;
     background-color: rgba(235, 64, 52, .9);
 }
 
 @media screen and (min-width: 481px) and (max-width: 768px) {
    
+}
+
+@media screen and (min-width: 1201px) {
+    .itemsContainer {
+        align-items: flex-start;
+        border: none;
+        display: block;
+        flex-direction: column;
+        min-width: 0;
+        overflow-x: hidden;
+        overflow-y: scroll;
+        text-align: center;
+        height: 300px;
+        width: 100%;
+    }
+
+    .itemP {
+        font-size: 1.75em;
+    }
 }

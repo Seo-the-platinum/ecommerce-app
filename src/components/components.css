@@ -23,6 +23,7 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    margin-top: 10%;
     max-width: 95%;
 }
 
@@ -75,6 +76,7 @@
 
     #sideBarContainer {
         padding-left: 7%;
+        right: 20%;
         width: 15%;
     }
 
@@ -92,7 +94,8 @@
 
     #sideBarContainer {
         padding-left: 2%;
-        width: 12%;
+        right: 27%;
+        width: 10%;
     }
 
     .headerSearchDiv {
@@ -109,7 +112,8 @@
 
     #sideBarContainer {
         padding-left: 4%;
-        width: 15%;
+        right: 27%;
+        width: 10%;
     }
 
     .headerSearchDiv {
@@ -122,14 +126,30 @@
         justify-content: flex-start;
         flex-direction: row;
         flex-wrap: wrap;
+        margin-top: 0;
+        min-width: 80%;
+        padding-left: 5%;
     }
 
-    #sideBarContainer {
+    .headerContainer {
+        height: 75px;
         padding-left: 2%;
-        width: 10%;
+        padding-right: 2%;
+
     }
 
     .headerSearchDiv {
         max-width: 30%;
+    }
+
+    #sideBarContainer {
+        padding-left: 2%;
+        right: 32%;
+        top: 600%;
+        width: 7%;
+    }
+
+    .tileContainer {
+        max-width: 210px;
     }
 }

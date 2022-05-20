@@ -29,7 +29,7 @@ const ItemPage = ()=> {
         <div className='smallPicsDiv'>
           { itemImages.map((s, index)=>
               s.includes('.jpg') ?
-                <div className='thumbnailDiv'>
+                <div className='thumbnailDiv' key={index}>
                   <img
                     className='thumbnail'
                     onClick={handleChange}
@@ -41,7 +41,7 @@ const ItemPage = ()=> {
                   />
                 </div>
               : s.includes('.mp4') ?
-                <div className='thumbnailDiv'>
+                <div className='thumbnailDiv' key={index}>
                   <ReactPlayer
                     style={{
                       border: featured.includes('.mp4') ? '2px black solid':'none',

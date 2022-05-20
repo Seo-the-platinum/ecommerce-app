@@ -69,7 +69,7 @@ const Cart = () => {
                         defaultValue={item.amount ? item.amount: 1}>
                         {
                             Array.from({length: item.quantity}, (v,i)=> i).map((i)=> {
-                            return <MenuItem value={i ? i + 1: 1}>{i + 1} </MenuItem>
+                            return <MenuItem key={i} value={i ? i + 1: 1}>{i + 1} </MenuItem>
                             })
                         }
                     </Select>

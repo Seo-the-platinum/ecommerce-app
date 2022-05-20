@@ -28,8 +28,8 @@ const Search = ()=> {
         value={searchTerm}/>
       <div className='searchIcon'>
         <SearchIcon
-          onClick={()=>handleSubmit()}
-          style={{ color: 'white'}}/>
+          onClick={handleSubmit}
+          style={{ color: 'white', width: '100%'}}/>
       </div>
     </div>
   )

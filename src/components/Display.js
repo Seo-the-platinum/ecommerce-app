@@ -23,9 +23,9 @@ const Display = ()=> {
          return <Tile key={p.id} product={p}/>})
         :
         items.map(p=> p.type === item ? 
-          <Tile product={p}/>
+          <Tile key={p.id} product={p}/>
         : item === 'all' ?
-        <Tile product={p}/>
+        <Tile key={p.id} product={p}/>
         : null
       ): null }
     </div>

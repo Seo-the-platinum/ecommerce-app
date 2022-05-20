@@ -19,13 +19,7 @@ const Items = ()=> {
     'Mousepads'
   ]
 
-  const Section = styled.div`
-    align-items:flex-end;
-    border-right: ${(props)=> props.dataKey === item.payload ? '2px solid black' : 'none'};
-    border-bottom: ${(props)=> props.dataKey === item.payload && props.dataKey === 'All' ? '2px solid black' : 'none'};
-    justify-content: center;
-    padding: 1%;
-  `
+ 
   const handleDispatch = (i)=> {
     dispatch(updateItem(i.toLowerCase()))
     dispatch(updateSearch(undefined))
@@ -36,15 +30,14 @@ const Items = ()=> {
       {
         itemTypes.map(i=> {
           return (
-            <Section
+            <div
               className={selectedItem === i ? 'itemsOption itemSelected' : 'itemsOption'}
               key={i}
-              dataKey={i}
               onClick={()=> handleDispatch(i)}>
-                <p style={{fontSize: '.75em', margin: 0}}>
+                <p className='itemP'>
                   {i}
                 </p>
-            </Section>
+            </div>
           )
         })
       }
