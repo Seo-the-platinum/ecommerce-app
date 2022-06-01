@@ -4,6 +4,7 @@ import itemReducer from '../features/item/itemSlice'
 import searchReducer from '../features/search/searchSlice'
 import orderReducer from '../features/order/OrderSlice'
 import firebaseItemsReducer from '../features/firebaseItems/firebaseItemsSlice'
+import prevOrdersReducer from '../features/prevOrders/PrevOrdersSlice'
 
 export default configureStore({
   reducer: {
@@ -11,6 +12,7 @@ export default configureStore({
     item: itemReducer,
     search: searchReducer,
     order: orderReducer,
-    items: firebaseItemsReducer
+    items: firebaseItemsReducer,
+    prevOrders: prevOrdersReducer
   },
 })

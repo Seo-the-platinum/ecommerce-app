@@ -8,6 +8,7 @@ import ItemPage from './views/itemPage/ItemPage'
 import Header from './components/Header'
 import Home from './views/home/Home'
 import Cart from './views/cart/Cart'
+import PreviousOrders from './views/previousOrders/PreviousOrders'
 import styled from 'styled-components'
 import {
   Routes,
@@ -44,6 +45,7 @@ const App= ()=> {
         <Route path='/ItemPage/:itemId' element={<ItemPage/>}/>
         <Route path='/Cart/' element={<Cart/>}/>
         <Route path='/Checkout' element={<Checkout/>}/>
+        <Route path='/PreviousOrders/:uid' element={<PreviousOrders/>}/>
       </Routes>
     </Container>
   );

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { getDatabase, ref, child, push, update } from "firebase/database";
+import {  addDoc, arrayUnion, collection, doc, updateDoc } from "firebase/firestore";
+import { db } from '../../utils/firebase'
 
 const Checkout = () => {
     const order = useSelector(state=> state.order.value)
@@ -13,16 +14,13 @@ const Checkout = () => {
     }) : []
     const total = items.reduce((prev, curr)=> prev + (curr.price * curr.amount), 0)
 
-    const updateOrder = (uid, order) =>  {
-        const db = getDatabase();
-        const newOrderKey = push(child(ref(db), 'orders')).key;
-        // Write the new post's data simultaneously in the posts list and the user's post list.
-        console.log(db)
-        const updates = {};
-        updates['/orders/' + newOrderKey] = order;
-        updates['/users/' + uid + '/orders/' + newOrderKey] = order;
-        return update(ref(db), updates).then(data=> {console.log(data)}).catch((err)=> {console.log(err)})
-        }
+    const updateOrder = async (uid, order) =>  {
+        const data  = {...order, user: uid}
+        const docRef = await addDoc(collection(db, 'orders'), data)
+        const userOrdersRef = doc(db, `users/${uid}/`)
+        await updateDoc(userOrdersRef, {orders: arrayUnion(docRef.id)})
+    }
+
   return (
     <div>
         {

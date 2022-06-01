@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { login } from '../../features/user/userSlice'
 import { Link } from 'react-router-dom'
 import './login.css'
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+
 
 const Login = ()=> {
   const [email, setEmail] = useState('')
@@ -14,9 +15,8 @@ const Login = ()=> {
     e.preventDefault()
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in 
+        // Signed in
         const user = userCredential.user;
-        console.log(userCredential)
         dispatch(login(user.uid))
         // ...
       })

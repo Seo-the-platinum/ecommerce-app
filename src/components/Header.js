@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 import Search from '../features/search/Search'
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -35,8 +37,14 @@ import './components.css'
 
 const Header = ()=> {
   const [sidebar, setSidebar] = useState(false)
+  const navigate = useNavigate()
+  const uid = useSelector(state=> state.user.value)
   const handleSidebar = ()=> {
-    setSidebar(!sidebar)}
+    setSidebar(prev=> !prev)
+  }
+  const goToPrev = ()=> {
+    navigate(`/PreviousOrders/${uid}`)
+  }
   return (
     <div className='headerContainer'>
       <div onClick={handleSidebar}>
@@ -55,6 +63,12 @@ const Header = ()=> {
           <StyledLink onClick={handleSidebar} to='/Signup'>
             Sign Up
           </StyledLink>
+           <button onClick={()=>{
+            handleSidebar()
+            goToPrev()
+            }}>
+            Order History
+          </button>
           <CartDiv>
             <StyledLink onClick={handleSidebar} to='/Cart'>
               <ShoppingCartIcon
