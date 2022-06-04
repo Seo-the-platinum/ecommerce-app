@@ -1,10 +1,17 @@
 import React from 'react'
+import './previousOrders.css'
 
-const PrevItem = (props) => {
+const PrevItem = ({item}) => {
+
   return (
     <div className='prevItemContainer'>
-        <img alt='item thumbnail'/>
-        <p>item name to go here</p>
+      {
+        item !== undefined &&
+        <div>
+          <img alt='item thumbnail' className='prevItemImg' src={item.source}/>
+          <p>{item.label}</p>
+        </div>
+      }
     </div>
   )
 }

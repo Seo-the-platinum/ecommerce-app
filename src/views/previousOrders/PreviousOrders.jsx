@@ -1,34 +1,36 @@
 import React, { useEffect, useState } from 'react'
 import PrevOrder from './PrevOrder'
 import { useParams } from 'react-router-dom'
-import { collection, getDoc, doc } from 'firebase/firestore'
+import { useDispatch, useSelector } from 'react-redux'
+import { collection, getDocs, query, where} from 'firebase/firestore'
 import { db } from '../../utils/firebase'
+import { getOrders, updateOrders } from '../../features/prevOrders/PrevOrdersSlice'
 
 const PreviousOrders = () => {
   const { uid } = useParams()
-  const ordersRef = doc(db, `users/${uid}`)
+  const q = query(collection(db, 'orders'), where('user', '==', uid))
   const [orders, setOrders ] = useState([])
+  const reduxOrders = useSelector(state=> state.prevOrders.value)
+  const dispatch = useDispatch()
   
   useEffect(()=> {
+    let ordersList = []
     const getOrders = async ()=> {
-      const orders = await getDoc(ordersRef)
-      const orderIds = orders.data().orders
-      let allOrders = []
-      orderIds.forEach(async (id)=> {
-        const orderRef = doc(db, `orders/${id}`)
-        const orderObj = await getDoc(orderRef)
-        const fullOrder = orderObj.data()
-        allOrders.push(fullOrder)
+      const orders = await getDocs(q)
+      orders.forEach(doc=> {
+        ordersList.push(doc.data())
       })
-      console.log(allOrders)
-      setOrders(allOrders)
+      setOrders(ordersList)
     }
+
     getOrders()
   },[])
   console.log(orders)
   return (
     <div className='prevOrdersContainer'>
-
+      {orders.map(order=> {
+        return <PrevOrder order={order}/>
+      })}
     </div>
   )
 }

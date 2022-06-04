@@ -32,7 +32,6 @@ const Cart = () => {
         dispatch(updateItem(updatedItems))
       }
     const handleDelete = (e)=> {
-        console.log('target here:',e.target.value)
         const itemToDelete = e.target.value
         const updatedItems = items.filter(i=> {
             return i.id !== itemToDelete

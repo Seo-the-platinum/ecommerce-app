@@ -5,22 +5,23 @@ import { db } from '../../utils/firebase'
 
 const Checkout = () => {
     const order = useSelector(state=> state.order.value)
+    console.log(order)
     const products = useSelector(state=> state.items.value.payload)
     const uid = useSelector(state=> state.user.value)
     const items = order ? order.map(o=> {
         const { amount } = o
         const item = products.find(p=> p.id === o.id)
-        return {...item, amount}
+        return {...item, amount,}
     }) : []
     const total = items.reduce((prev, curr)=> prev + (curr.price * curr.amount), 0)
 
     const updateOrder = async (uid, order) =>  {
-        const data  = {...order, user: uid}
+        const data  = {...order, user: uid, orderDate: new Date()}
         const docRef = await addDoc(collection(db, 'orders'), data)
         const userOrdersRef = doc(db, `users/${uid}/`)
         await updateDoc(userOrdersRef, {orders: arrayUnion(docRef.id)})
     }
-
+    console.log(order)
   return (
     <div>
         {

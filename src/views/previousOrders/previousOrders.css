@@ -1,0 +1,30 @@
+.prevOrderContainer {
+    border: 2px solid gray;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    margin: 1%;
+}
+
+.prevOrderHeader {
+    background-color: lightgray;
+    border-bottom: 1px solid gray;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.prevItemContainer {
+    display: flex;
+    margin: 1%;
+}
+
+.prevItemsContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+}
+
+.prevItemImg {
+    height: auto;
+    max-width: 120px;
+}

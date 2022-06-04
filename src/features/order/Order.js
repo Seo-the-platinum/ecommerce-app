@@ -23,9 +23,11 @@ const Order = props => {
       updatedItem['amount'] += amount
       dispatch(updateItem(updatedItem))
     } else {
+      console.log(item.price)
       dispatch(addItem({
         id: item.id,
         amount: amount,
+        price: item.price
       }))
     }
   }

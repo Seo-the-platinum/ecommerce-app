@@ -6,12 +6,11 @@ export const prevOrdersSlice = createSlice({
         value: []
     },
     reducers: {
-        orders: (state, action)=> {
+        updateOrders: (state, action)=> {
             state.value.push(action.payload)
         }
     }
-
 })
 
-export const { orders } = prevOrdersSlice.actions
+export const { updateOrders } = prevOrdersSlice.actions
 export default prevOrdersSlice.reducer
