@@ -67,7 +67,7 @@
 
 .tileContainer {
     align-items: center;
-    display:flex;
+    display: flex;
     flex: 1;
     flex-direction: column;
     height: 50%;
@@ -146,7 +146,6 @@
         height: 75px;
         padding-left: 2%;
         padding-right: 2%;
-
     }
 
     .headerSearchDiv {

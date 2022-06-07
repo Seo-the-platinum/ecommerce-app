@@ -1,4 +1,4 @@
-.container {
+.loginContainer {
     align-items: center;
     display: flex;
     flex-direction: column;
@@ -28,7 +28,7 @@
     text-decoration: none;
 }
 
-.form {
+.loginForm {
     align-items: center;
     border-radius: 8px;
     box-shadow: 0px 0px 4px gray;
@@ -38,7 +38,7 @@
     min-width: 80%;
 }
 
-.input {
+.loginInput {
     background-color: rgba(156, 219, 255);
     border: grey 1px solid;
     border-radius: 8px;
@@ -61,5 +61,13 @@
 @media screen and (min-width: 1201px) {
     .container {
         margin-top: 5%;
+    }
+
+    .createLink {
+        margin-bottom: 1%;
+    }
+
+    .loginInput {
+        margin: 2%;
     }
 }

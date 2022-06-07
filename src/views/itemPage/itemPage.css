@@ -78,31 +78,37 @@
         max-width: 30%;
     }
 
-    .smallPicsDiv {
-        max-width: 20%;
-        flex-direction: column;
-        margin-top: 0;
-        max-height: 70%;
+    .featured {
+        max-width: 60%;
+        max-height: 60%;
     }
 
+    
     .imagesDiv {
         flex-direction: row;
         justify-content: center;
         max-width: 60%;
     }
-
+    
     .itemDiv {
         height: 400px;
         order: 2;
         flex: 1;
     }
-
+    
     .itemPageContainer {
         align-self: center;
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
         max-width: 80%;
+    }
+
+    .smallPicsDiv {
+        max-width: 20%;
+        flex-direction: column;
+        margin-top: 0;
+        max-height: 70%;
     }
 }
 

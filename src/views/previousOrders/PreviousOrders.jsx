@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { collection, getDocs, query, where} from 'firebase/firestore'
 import { db } from '../../utils/firebase'
-import { getOrders, updateOrders } from '../../features/prevOrders/PrevOrdersSlice'
+import { updateOrders } from '../../features/prevOrders/PrevOrdersSlice'
 
 const PreviousOrders = () => {
   const { uid } = useParams()
@@ -17,7 +17,6 @@ const PreviousOrders = () => {
     let ordersList = []
     const getOrders = async ()=> {
       if (reduxOrders.length > 0) {
-        console.log(reduxOrders)
         setOrders(reduxOrders)
       } else {
         const orders = await getDocs(q)
@@ -37,7 +36,6 @@ const PreviousOrders = () => {
     }
     getOrders()
   },[])
-  console.log(orders)
   return (
     <div className='prevOrdersContainer'>
       {orders.map((order, index)=> {

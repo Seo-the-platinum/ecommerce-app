@@ -63,14 +63,17 @@ const Header = ()=> {
           <StyledLink onClick={handleSidebar} to='/createNew'>
             Sign Up
           </StyledLink>
-           <button
+          {
+            uid !== null &&
+            <button
             className='orderHistory'
             onClick={()=>{
               handleSidebar()
               goToPrev()
             }}>
-            Order History
+              Order History
           </button>
+          }
           <CartDiv>
             <StyledLink onClick={handleSidebar} to='/Cart'>
               <ShoppingCartIcon

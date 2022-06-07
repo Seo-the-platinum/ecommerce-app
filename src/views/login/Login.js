@@ -33,10 +33,10 @@ const Login = ()=> {
     setPassword(e.target.value)
   }
   return (
-    <div className="container">
-      <form className='form' onSubmit={handleSubmit}>
-        <input className='input' type='email' onChange={handleEmail} placeholder='Username' value={email}/>
-        <input className='input' type='password' onChange={handlePassword} placeholder='Password' value={password}/>
+    <div className="loginContainer">
+      <form className='loginForm' onSubmit={handleSubmit}>
+        <input className='loginInput' type='email' onChange={handleEmail} placeholder='Username' value={email}/>
+        <input className='loginInput' type='password' onChange={handlePassword} placeholder='Password' value={password}/>
         <button className='login' type='submit'> Login</button>
         <Link className='forgotLink' to='/recovery'>
           Forgot password?
