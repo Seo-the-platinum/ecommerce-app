@@ -125,3 +125,16 @@
         max-width: 90%;
     }
 }
+
+@media screen and (min-width: 1201px) {
+    .itemPageContainer {
+        min-width: 80%;
+    }
+
+    .featured {
+        max-height: none;
+        max-width: 80%;
+        height: auto;
+        min-width: 70%;
+    }
+}

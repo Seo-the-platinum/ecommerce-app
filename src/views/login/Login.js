@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import { login } from '../../features/user/userSlice'
 import { Link } from 'react-router-dom'
 import './login.css'
@@ -11,6 +12,7 @@ const Login = ()=> {
   const [password, setPassword] = useState('')
   const dispatch = useDispatch()
   const auth = getAuth();
+  const navigate = useNavigate()
   const handleSubmit = (e)=> {
     e.preventDefault()
     signInWithEmailAndPassword(auth, email, password)
@@ -18,6 +20,7 @@ const Login = ()=> {
         // Signed in
         const user = userCredential.user;
         dispatch(login(user.uid))
+        navigate('/')
         // ...
       })
       .catch((error) => {

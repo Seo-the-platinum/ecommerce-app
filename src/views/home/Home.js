@@ -7,7 +7,7 @@ import './home.css'
 const Home = ()=> {
   const userId = useSelector(state=> state.user.value)
   return (
-    <div className="container" id='home'>
+    <div id='home'>
       <Items/>
       <Display/>
     </div>

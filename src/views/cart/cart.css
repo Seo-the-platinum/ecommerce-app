@@ -1,11 +1,21 @@
-.container {
+.cartContainer {
+    align-items: center;
     display: flex;
     flex-direction: column;
     max-width: 100%;
 }
 
-.item {
+.cartItem {
     display: flex;
     flex-direction: column;
     max-width: 80%;
+}
+
+.checkout {
+    margin-bottom: 5%;
+}
+
+@media screen and (min-width: 1025px) {
+    .cartContainer {
+    }
 }

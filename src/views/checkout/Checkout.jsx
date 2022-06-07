@@ -1,11 +1,13 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import {  addDoc, arrayUnion, collection, doc, updateDoc } from "firebase/firestore";
 import { db } from '../../utils/firebase'
 import Button from '@mui/material/Button'
 import './checkout.css'
 
 const Checkout = () => {
+    const navigate = useNavigate()
     const order = useSelector(state=> state.order.value)
     const products = useSelector(state=> state.items.value.payload)
     const uid = useSelector(state=> state.user.value)
@@ -21,6 +23,7 @@ const Checkout = () => {
         const docRef = await addDoc(collection(db, 'orders'), data)
         const userOrdersRef = doc(db, `users/${uid}/`)
         await updateDoc(userOrdersRef, {orders: arrayUnion(docRef.id)})
+        navigate('/')
     }
   return (
     <div className='checkoutContainer'>

@@ -45,12 +45,12 @@ const Cart = () => {
     }
     
   return (
-    <div className='container'>
-        Cart
+    <div className='cartContainer'>
+        <h3>Cart</h3>
         {
         items.map(item => {
             return (
-            <div className='item' key={item.id}>
+            <div className='cartItem' key={item.id}>
                 <img src={item.source}/>
                 <p>{item.label}</p>
                 <p>{`$${item.price.toFixed(2)}`}</p>
