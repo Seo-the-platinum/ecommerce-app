@@ -48,8 +48,8 @@ const Order = props => {
             onChange={handleChange}
             defaultValue={1}>
               {
-                ghostArray.map((i)=> {
-                  return <MenuItem value={i + 1}>{i + 1} </MenuItem>
+                ghostArray.map((i, index)=> {
+                  return <MenuItem key={index} value={i + 1}>{i + 1} </MenuItem>
                 })
               }
           </Select>

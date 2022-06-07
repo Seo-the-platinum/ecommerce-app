@@ -54,6 +54,17 @@
     height: 100%;
     width: 70%;
 }
+
+.orderHistory {
+    background-color: black;
+    border: none;
+    color: white;
+    font-size: 16px;
+    text-align: left;
+    max-width: 100%;
+    padding: 0;
+}
+
 .tileContainer {
     align-items: center;
     display:flex;
@@ -142,9 +153,13 @@
         max-width: 30%;
     }
 
+    .orderHistory {
+        font-size: 1.25em;;
+    }
+
     #sideBarContainer {
         padding-left: 2%;
-        right: 32%;
+        right: 35%;
         top: 600%;
         width: 7%;
     }

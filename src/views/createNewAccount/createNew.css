@@ -1,0 +1,25 @@
+.createNewContainer {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+}
+
+.formContainer {
+    justify-content: space-evenly;
+    display: flex;
+    flex-direction: column;
+    min-width: 80%;
+    min-height: 200px;
+}
+
+.createNewFormInput {
+    border-radius: 5px;
+    min-height: 30px;
+}
+
+@media screen and (min-width: 768px) {
+    .formContainer {
+        min-width: 60%;
+    }
+}

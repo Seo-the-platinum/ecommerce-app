@@ -5,7 +5,7 @@ import { getAuth } from "firebase/auth";
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: "beebeebarry-aff8a.firebaseapp.com",
+    authDomain: process.env.REACT_APP_AUTH_DOMAIN,
     projectId: "beebeebarry-aff8a",
     storageBucket: "beebeebarry-aff8a.appspot.com",
     messagingSenderId: "310959964646",

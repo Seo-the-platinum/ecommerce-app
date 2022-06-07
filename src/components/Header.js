@@ -12,6 +12,7 @@ import './components.css'
     display: flex;
     flex: 3;
     flex-direction: column;
+    justify-content: space-between;
   `
 
   const CartDiv = styled.div`
@@ -24,8 +25,7 @@ import './components.css'
     background-color: rgba(0,0,0,0);
     border: none;
     color: white;
-    flex: 1 100%;
-    font-size: 100%;
+    font-size: 1.25em;
     padding: 0;
     text-decoration: none;
   `
@@ -60,12 +60,14 @@ const Header = ()=> {
           <StyledLink onClick={handleSidebar} to='/Login'>
             Login
           </StyledLink>
-          <StyledLink onClick={handleSidebar} to='/Signup'>
+          <StyledLink onClick={handleSidebar} to='/createNew'>
             Sign Up
           </StyledLink>
-           <button onClick={()=>{
-            handleSidebar()
-            goToPrev()
+           <button
+            className='orderHistory'
+            onClick={()=>{
+              handleSidebar()
+              goToPrev()
             }}>
             Order History
           </button>

@@ -2,10 +2,11 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import {  addDoc, arrayUnion, collection, doc, updateDoc } from "firebase/firestore";
 import { db } from '../../utils/firebase'
+import Button from '@mui/material/Button'
+import './checkout.css'
 
 const Checkout = () => {
     const order = useSelector(state=> state.order.value)
-    console.log(order)
     const products = useSelector(state=> state.items.value.payload)
     const uid = useSelector(state=> state.user.value)
     const items = order ? order.map(o=> {
@@ -21,23 +22,26 @@ const Checkout = () => {
         const userOrdersRef = doc(db, `users/${uid}/`)
         await updateDoc(userOrdersRef, {orders: arrayUnion(docRef.id)})
     }
-    console.log(order)
   return (
-    <div>
+    <div className='checkoutContainer'>
         {
             items.map(i=> {
                 return (
-                    <div key={i.id}>
-                        <img src={i.source}/>
+                    <div
+                        className='checkoutItem'
+                        key={i.id}>
+                        <img className='checkoutImg' src={i.source}/>
                         <p>{i.label}</p>
                         <p>{`$${i.price.toFixed(2)}`}</p>
-                        <p>{i.amount}</p>
+                        <p>{`amount: ${i.amount}`}</p>
                     </div>
                 )
             })
         }
-        <h1>{`Total: $${total.toFixed(2)}`}</h1>
-        <button onClick={()=> updateOrder(uid, order)}>Checkout</button>
+        <div className="checkoutTotal">
+            <h1>{`Total: $${total.toFixed(2)}`}</h1>
+            <Button className='checkoutButton' onClick={()=> updateOrder(uid, order)}>Checkout</Button>
+        </div>
     </div>
   )
 }

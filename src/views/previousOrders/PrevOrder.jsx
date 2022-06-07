@@ -8,7 +8,6 @@ const getItems = (items=[], targetItems = [])=> {
     return purchasedItems
 }
 const getTotal = (purchases=[]) => {
-    console.log(purchases)
     if (purchases.length > 0 && purchases !==undefined) {
         const total = purchases.reduce((prev, curr)=> prev + (curr.price * curr.amount), 0)
         return total
@@ -24,19 +23,17 @@ const PrevOrder = (props) => {
         const keys = (order)=> {
             const keysArr = Object.keys(order).filter(k=> k !== 'user' && k !== 'orderDate')
             const products = keysArr.map(k=> order[k])
-            console.log(products)
             setPurchases(products)
         }
         keys(order)
-    },[])
-    const date = order.orderDate.toDate()
-    const [month, day, year] = [date.getMonth(), date.getDate(), date.getFullYear()]
+    },[order])
+    const date = order.orderDate
   return (
     <div className="prevOrderContainer">
         <div className="prevOrderHeader">
             <div className="prevOrderDate">
                 <h3>ORDER PLACED</h3>
-                <p>{`${month}/${day}/${year}`}</p>
+                <p>{date}</p>
             </div>
             <div className="prevOrderTotal">
                 <h3>TOTAL</h3>
@@ -51,7 +48,7 @@ const PrevOrder = (props) => {
             {
                 getItems(items, purchases) !== undefined && getItems(items, purchases).map(i=> {
                     return (
-                        <PrevItem item={i}/>
+                        <PrevItem item={i} key={i.label}/>
                     )
                 })
             }

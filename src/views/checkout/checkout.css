@@ -1,0 +1,25 @@
+
+.checkoutContainer {
+    display: flex;
+    flex-direction: column;
+    padding: 1%;
+    padding-top: 4%;
+    max-width: 100%;
+}
+
+.checkoutImg {
+    max-width: 80%;
+}
+
+.checkoutItem {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.checkoutTotal {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}

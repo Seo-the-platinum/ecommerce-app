@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import Button from '@mui/material/Button'
+import './createNew.css'
 
 const CreateNew = () => {
     const [ email, setEmail] = useState('')
@@ -13,7 +15,6 @@ const CreateNew = () => {
             createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
             // Signed in 
-            console.log(userCredential, userCredential.user)
             const user = userCredential.user;
             // ...
             })
@@ -39,14 +40,14 @@ const CreateNew = () => {
         setVerifiedPassword(e.target.value)
     }
   return (
-    <div>
-        <form onSubmit={handleSubmit}>
-            <input placeholder='email' value={email} onChange={handleEmail} required type='email'/>
-            <input placeholder='password' value={password} onChange={handlePassword} required type='password'/>
-            <input placeholder='re-enter password' value={verifiedPassword} onChange={handleVerifiedPassword} required type='password'/>
-            <button>
+    <div className='createNewContainer'>
+        <form className='formContainer' onSubmit={handleSubmit}>
+            <input className='createNewFormInput' placeholder='email' value={email} onChange={handleEmail} required type='email'/>
+            <input className='createNewFormInput' placeholder='password' value={password} onChange={handlePassword} required type='password'/>
+            <input className='createNewFormInput' placeholder='re-enter password' value={verifiedPassword} onChange={handleVerifiedPassword} required type='password'/>
+            <Button>
                 Sign Up
-            </button>
+            </Button>
         </form>
     </div>
   )

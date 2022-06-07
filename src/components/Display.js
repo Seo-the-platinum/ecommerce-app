@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
 import Tile from './Tile'
 import { useSelector } from 'react-redux'
 import './components.css'
