@@ -2,6 +2,7 @@
 .checkoutContainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding: 1%;
     padding-top: 4%;
     max-width: 100%;
@@ -12,9 +13,14 @@
 }
 
 .checkoutItem {
+    border: solid 1px gray;
+    border-radius: 10px;
     align-items: center;
     display: flex;
     flex-direction: column;
+    padding: 1%;
+    margin: 1%;
+    max-width: 40%;
 }
 
 
@@ -22,4 +28,10 @@
     align-items: center;
     display: flex;
     flex-direction: column;
+}
+
+.checkoutItemPrice {
+    display: flex;
+    justify-content: space-evenly;
+    min-width: 80%;
 }

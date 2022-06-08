@@ -46,7 +46,7 @@ const Cart = () => {
     
   return (
     <div className='cartContainer'>
-        <h3>Cart</h3>
+        <h3 style={{marginTop: '3%', marginBottom: '3%'}}>Cart</h3>
         {
         items.map(item => {
             return (

@@ -13,24 +13,27 @@ const Search = ()=> {
     setSearchTerm(e.target.value.toLowerCase());
   }
 
-  const handleSubmit = ()=> {
-    setSearchTerm('')
-    dispatch(updateSearch(searchTerm))
+  const handleSubmit = (e)=> {
+    e.preventDefault()
     navigate('/')
+    dispatch(updateSearch(searchTerm))
+    setSearchTerm('')
   }
 
   return (
     <div className='searchContainer'>
-      <input className='searchField'
-        type='search'
-        placeholder='search...'
-        onChange={handleChange}
-        value={searchTerm}/>
-      <div className='searchIcon'>
-        <SearchIcon
-          onClick={handleSubmit}
-          style={{ color: 'white', width: '100%'}}/>
-      </div>
+      <form className='searchForm' onSubmit={handleSubmit}>
+        <input className='searchField'
+          type='search'
+          placeholder='search...'
+          onChange={handleChange}
+          value={searchTerm}/>
+        <div className='searchIcon'>
+          <SearchIcon
+            onClick={handleSubmit}
+            style={{ color: 'white', width: '100%'}}/>
+        </div>
+      </form>
     </div>
   )
 }

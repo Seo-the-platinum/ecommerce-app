@@ -60,14 +60,24 @@
 
 @media screen and (min-width: 1201px) {
     .container {
-        margin-top: 5%;
+        margin-top: 2%;
     }
 
     .createLink {
         margin-bottom: 1%;
+
+    }
+
+    .forgotLink {
+        margin-bottom: 5%;
     }
 
     .loginInput {
         margin: 2%;
+        min-width: 60%;
+    }
+
+    .login {
+        width: 60%;
     }
 }

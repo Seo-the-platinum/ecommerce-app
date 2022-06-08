@@ -35,8 +35,10 @@ const Checkout = () => {
                         key={i.id}>
                         <img className='checkoutImg' src={i.source}/>
                         <p>{i.label}</p>
-                        <p>{`$${i.price.toFixed(2)}`}</p>
-                        <p>{`amount: ${i.amount}`}</p>
+                        <div className="checkoutItemPrice">
+                            <p>{`$${i.price.toFixed(2)}`}</p>
+                            <p>{`amount: ${i.amount}`}</p>
+                        </div>
                     </div>
                 )
             })

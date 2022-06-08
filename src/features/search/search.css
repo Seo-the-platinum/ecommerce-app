@@ -15,6 +15,11 @@
     text-indent: 5px;
 }
 
+.searchForm {
+    display: flex;
+    min-width: 90%;
+}
+
 .searchIcon {
     background-color: rgb(43, 149, 255);
     border: none;

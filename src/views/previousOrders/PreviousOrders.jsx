@@ -16,26 +16,26 @@ const PreviousOrders = () => {
   useEffect(()=> {
     let ordersList = []
     const getOrders = async ()=> {
-      if (reduxOrders.length > 0) {
-        setOrders(reduxOrders)
-      } else {
-        const orders = await getDocs(q)
-        orders.forEach(doc=> {
-          ordersList.push(doc.data())
-        })
-        
-        const formattedOrders = ordersList.map(order=> {
-          const orderDate = new Date(order.orderDate.toDate()).toLocaleDateString()
-          return {
-            ...order, orderDate
-          }
-        })
-        setOrders(formattedOrders)
-        dispatch(updateOrders(formattedOrders))
-      }
+      const orders = await getDocs(q)
+      orders.forEach(doc=> {
+        ordersList.push(doc.data())
+      })
+      
+      const formattedOrders = ordersList.map(order=> {
+        const orderDate = new Date(order.orderDate.toDate()).toLocaleDateString()
+        return {
+          ...order, orderDate
+        }
+      })
+      const sortedOrders = formattedOrders.sort((a,b)=> {
+        return new Date(b.orderDate) - new Date(a.orderDate)
+      })
+      setOrders(sortedOrders)
+      dispatch(updateOrders(sortedOrders))
     }
     getOrders()
   },[])
+
   return (
     <div className='prevOrdersContainer'>
       {orders.map((order, index)=> {
